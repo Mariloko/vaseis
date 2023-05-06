@@ -1,2 +1,82 @@
-ρψτω
-ψεψρςε
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+DROP SCHEMA IF EXISTS dtbs;
+CREATE SCHEMA dtbs;
+USE dtbs;
+
+CREATE TABLE school_unit (
+  school_name VARCHAR(50) NOT NULL,
+  principal VARCHAR(50) NOT NULL,
+  lib_manager_fn VARCHAR(20) NOT NULL,
+  lib_manager_ln VARCHAR(20) NOT NULL,
+  city VARCHAR(30) NOT NULL,
+  postal_code INT NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  phone_num INT NOT NULL,
+  PRIMARY KEY (school_name),
+  FOREIGN KEY (lib_manager_fn, lib_manager_ln) REFERENCES manager(first_name, last_name)
+);
+
+CREATE TABLE books (
+  ISBN INT NOT NULL,
+  author VARCHAR(50) NOT NULL, 
+  book_category VARCHAR (40) NOT NULL,  
+  image VARCHAR(100) NOT NULL,
+  available_copies INT NOT NULL,
+  title VARCHAR (40) NOT NULL,
+  languages VARCHAR (20) NOT NULL,
+  keywords VARCHAR (20) NOT NULL,
+  publisher VARCHAR (30) NOT NULL,
+  page_num INT NOT NULL,
+  summary VARCHAR (5000) NOT NULL,
+  PRIMARY KEY (ISBN)
+  );
+  
+CREATE TABLE users (
+  username VARCHAR(30) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  PRIMARY KEY (username)
+  );
+
+CREATE TABLE administrator (
+  username VARCHAR(30) NOT NULL PRIMARY KEY,
+  FOREIGN KEY (username) REFERENCES users(username)
+  );
+
+CREATE TABLE managers (
+  username VARCHAR(30) NOT NULL PRIMARY KEY,
+  school_name VARCHAR(40) NOT NULL,
+  FOREIGN KEY (username) REFERENCES users(username),
+  FOREIGN KEY (school_name) REFERENCES school_unit(school_name)
+  );
+
+
+CREATE TABLE students_teachers (
+  username VARCHAR (30) NOT NULL PRIMARY KEY,
+  FOREIGN KEY (username) REFERENCES users(username)
+  );
+  
+CREATE TABLE daneismos (
+  reserve_date VARCHAR (20) NOT NULL,
+  return_date VARCHAR (20) NOT NULL,
+  status ENUM ('reserved', 'pending', 'denied', 'lended', 'due return') DEFAULT 'pending',
+  ISBN INT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  PRIMARY KEY (ISBN, username),
+  FOREIGN KEY (username) REFERENCES students_teachers (username),
+  FOREIGN KEY (ISBN) REFERENCES books (ISBN)
+);
+
+CREATE TABLE review (
+  comment VARCHAR (2000) NOT NULL,
+  rating INT NOT NULL,
+  ISBN INT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  PRIMARY KEY (ISBN, username),
+  FOREIGN KEY (username) REFERENCES students_teachers (username),
+  FOREIGN KEY (ISBN) REFERENCES books(ISBN)
+  );
