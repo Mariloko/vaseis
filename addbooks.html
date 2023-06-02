@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+         margin-right: 60px;
+      }
+      .logout-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      .container2 {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 0px;
+         margin-left: 100px;
+      }
+      h2 {
+         margin-top:0px;
+         margin-bottom: 10px;
+         text-align:center;
+         font-size: 22px;
+         margin-left: 10px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+      table {
+         margin: 0 auto;
+      }
+   </style>
+</head>
+<body>
+      <header>
+        <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+        <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+      </header>
+      <h2>Προσθήκη νέου βιβλίου</h2>
+      <form action="/InsertBook" method="POST">
+        <label for="isbn">ISBN:</label>
+        <input type="number" id="isbn" name="isbn" required><br>
+  
+        <label for="image">Εικόνα:</label>
+        <input type="text" id="image" name="image" required maxlength="1000"><br>
+  
+        <label for="title">Τίτλος:</label>
+        <input type="text" id="title" name="title" required maxlength="80"><br>
+  
+        <label for="languages">Γλώσσες:</label>
+        <input type="text" id="languages" name="languages" required maxlength="60"><br> 
+  
+        <label for="keywords">Λέξεις-κλειδιά:</label>
+        <input type="text" id="keywords" name="keywords" required maxlength="60"><br>
+  
+        <label for="publisher">Εκδότης:</label>
+        <input type="text" id="publisher" name="publisher" required maxlength="50"><br>
+  
+        <label for="page_num">Σελίδες:</label>
+        <input type="number" id="page_num" name="page_num" required><br>
+  
+        <label for="summary">Περίληψη:</label>
+        <textarea id="summary" name="summary" required maxlength="5000"></textarea><br>
+  
+        <label for="authors">Συγγραφείς (Ονόματα χωρισμένα με κόμμα):</label>
+        <input type="text" id="authors" name="authors" required maxlength="500"><br>
+  
+        <label for="categories">Κατηγορίες (Ονόματα χωρισμένα με κόμμα):</label>
+        <input type="text" id="categories" name="categories" required maxlength="500"><br>
+  
+        <label for="copies">Αντίτυπα:</label>
+        <input type="number" id="copies" name="copies" required><br>
+  
+        <label for="school_name">Όνομα Σχολείου:</label>
+        <input type="text" id="school_name" name="school_name" required maxlength="40"><br>
+  
+        <button type="submit">Προσθήκη</button>
+     </form>
+  </body>
+  </html>
