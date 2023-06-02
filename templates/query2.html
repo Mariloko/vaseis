@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+      }
+      .login-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      h2 {
+         margin-bottom: 10px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+   </style>
+</head>
+<body>
+   <header>
+      <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+      <button class="login-button" onclick="window.location.href='login.html'">Σύνδεση</button>
+   </header>
+   <div class="container">
+      <h2>Συγγραφείς και δανεισμοί εκπαιδευτικών για μια κατηγορία βιβλίων</h2>
+      <form id="search-form">
+         <label for="category">Κατηγορία βιβλίων:</label>
+         <select id="category" required>
+            <option value="" disabled selected>Επιλέξτε κατηγορία</option>
+            <option value="Κατηγορία 1">Κατηγορία 1</option>
+            <option value="Κατηγορία 2">Κατηγορία 2</option>
+            <option value="Κατηγορία 3">Κατηγορία 3</option>
+            <option value="Κατηγορία 4">Κατηγορία 4</option>
+            <option value="Κατηγορία 5">Κατηγορία 5</option>
+            <option value="Κατηγορία 6">Κατηγορία 6</option>
+            <option value="Κατηγορία 7">Κατηγορία 7</option>
+            <option value="Κατηγορία 8">Κατηγορία 8</option>
+            <option value="Κατηγορία 9">Κατηγορία 9</option>
+            <option value="Κατηγορία 10">Κατηγορία 10</option>
+            <option value="Κατηγορία 11">Κατηγορία 11</option>
+            <option value="Κατηγορία 12">Κατηγορία 12</option>
+            <option value="Κατηγορία 13">Κατηγορία 13</option>
+            <option value="Κατηγορία 14">Κατηγορία 14</option>
+            <option value="Κατηγορία 15">Κατηγορία 15</option>
+            <option value="Κατηγορία 16">Κατηγορία 16</option>
+            <option value="Κατηγορία 17">Κατηγορία 17</option>
+            <option value="Κατηγορία 18">Κατηγορία 18</option>
+            <option value="Κατηγορία 19">Κατηγορία 19</option>            
+         </select>
+	 <button type="submit">Αναζήτηση</button>
+      </form>
+    <div id="result">
+         <!-- The search results will be displayed here -->
+      </div>
+   </div>
+   <script>
+      var categorySelect = document.getElementById('category');
+      var form = document.getElementById('search-form');
+      form.addEventListener('submit', performSearch);
+
+      function performSearch(event) {
+         event.preventDefault();
+
+         var category = categorySelect.value;
+         searchAuthorsAndTeachers(category);
+      }
+
+      function searchAuthorsAndTeachers(category) {
+         var resultContainer = document.getElementById('result');
+         resultContainer.innerHTML = ''; // Clear previous results
+
+         var resultList = document.createElement('ul');
+         resultList.classList.add('result-list');
+
+         // TODO: Perform the search and populate the resultList with authors and teachers
+
+         if (resultList.childElementCount > 0) {
+            resultContainer.appendChild(resultList);
+         } else {
+            resultContainer.textContent = 'Δεν βρέθηκαν αποτελέσματα.';
+         }
+      }
+   </script>
+</body>
+</html>

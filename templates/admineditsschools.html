@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+         margin-right: 60px;
+      }
+      .logout-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      .container2 {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 0px;
+         margin-left: 100px;
+      }
+      h2 {
+         margin-top:0px;
+         margin-bottom: 10px;
+         text-align:center;
+         font-size: 22px;
+         margin-left: 30px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+         margin-left: 10px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+      table {
+         margin: 0 auto; /* Center the table horizontally */
+      }
+   </style>
+</head>
+<body>
+      <header>
+        <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+        <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+      </header>
+      <h2>Επεξεργασία Στοιχείων Σχολείου</h2>
+      <form action="/UpdateSchool" method="POST" style="margin-bottom: 40px;">
+        <input type="hidden" name="school_name" value="{{ school.school_name }}" required>
+        <label for="principal">Διευθυντής:</label>
+        <input type="text" id="principal" name="principal" value="{{ school.principal }}" required>
+        <label for="lib_manager_fn">Όνομα χειριστή:</label>
+        <input type="text" id="lib_manager_fn" name="lib_manager_fn" value="{{ school.lib_manager_fn }}" required>
+        <label for="lib_manager_ln">Επίθετο χειριστή:</label>
+        <input type="text" id="lib_manager_ln" name="lib_manager_ln" value="{{ school.lib_manager_ln }}" required>
+        <label for="city">Πόλη:</label>
+        <input type="text" id="city" name="city" value="{{ school.city }}" required>
+        <label for="postal_code">Ταχυδρομικός κώδικας:</label>
+        <input type="number" id="postal_code" name="postal_code" value="{{ school.postal_code }}" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ school.email }}" required>
+        <label for="phone_num">Τηλέφωνο:</label>
+        <input type="number" id="phone_num" name="phone_num" value="{{ school.phone_num }}" required>
+        <button type="submit">Ενημέρωση</button>
+      </form>
+      </body>
+      </html>

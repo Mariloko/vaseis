@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+         margin-right:40px;
+      }
+      .logout-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      .container2 {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 0px;
+         margin-left: 100px;
+      }
+      h2 {
+         margin-top:0px;
+         margin-bottom: 10px;
+         text-align:center;
+         font-size: 22px;
+         margin-left: 60px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+      table {
+         margin: 0 auto; /* Center the table horizontally */
+      }
+      
+   </style>
+</head>
+<body>
+      <header>
+        <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+        <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+      </header>
+      <h2>Επιβεβαιωμένοι Χρήστες - {{ school_name }}</h2>
+      <form action="/GetAcceptedUsersBySchool" method="GET" class="container">
+        <label for="search-username">Αναζήτηση χρήστη:</label>
+        <input type="text" id="search-username" name="username" placeholder="Εισαγωγή ονόματος χρήστη">
+        <button type="submit">Αναζήτηση</button>
+     </form>
+      <table>
+         <thead>
+            <tr>
+               <th>Όνομα Χρήστη</th>
+               <th>Όνομα</th>
+               <th>Επώνυμο</th>
+               <th>Ημερομηνία Γέννησης</th>
+               <th>Ρόλος</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for user in GetAcceptedUsersBySchool %}
+            <tr>
+               <td>{{ user.username }}</td>
+               <td>{{ user.first_name }}</td>
+               <td>{{ user.last_name }}</td>
+               <td>{{ user.birth_date }}</td>
+               <td>{{ user.role }}</td>
+               <td>
+                <form method="post" action="/DeleteUser">
+                   <input type="hidden" name="username" value="{{ user.username }}">
+                   <button class="delete-button" type="submit">Διαγραφή</button>
+                </form>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+</body>
+</html>

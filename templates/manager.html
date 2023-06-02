@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Δίκτυο Σχολικών Βιβλιοθηκών </title>
+   <style> 
+        
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+	header {
+	  background-color: #69169B;
+      color: #fff;
+      padding: 10px;
+	  text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 200px;
+	}
+	h1 {
+	  margin: 0;
+	  font-size: 24px;
+      color: #E9E8EC;
+      flex: 1;
+      text-align: center;
+      margin-right: 20px;
+	}
+	.logout-button {
+	  background-color: #14D0B2;
+	  color: white;
+	  padding: 10px 20px;
+	  border: none;
+	  cursor: pointer;
+	  font-size: 16px;
+	  border-radius: 4px;
+	  text-decoration: none;
+	}
+	.content {
+      text-align: center;
+      padding: 20px;
+      font-size: 22px;
+      font-family: Arial, sans-serif;
+	}
+      .content2 {
+	text-align:left;
+	padding: 20px;
+	font-size:20px;
+	font-family: sans-serif;
+	}
+	.square-container {
+	  position: absolute;
+      top: 150px;
+	  left: 0;
+	  border: 1px solid #000;
+	  padding: 8px;
+	  border-radius: 4px;
+	  text-align: left;
+	}
+	.square-container .bullet-list {
+	  list-style-type: none;
+	}
+	.bullet-list {
+      list-style-type: disc;
+      text-align: center;
+	  text-decoration: none;
+	}
+	.bullet-list li {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: black;
+  vertical-align: top; /* Add this line */
+}
+
+.bullet-list li a {
+  color: #6C2424;
+  text-decoration: none;
+}
+	.hidden {
+      display: none;
+    }
+    .arrow {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid black;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      transition: transform 0.3s ease;
+    }
+    .arrow.down {
+      transform: rotate(180deg);
+    }
+   </style>
+</head>
+<body>
+   <header>
+      <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+      <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+    </header>
+   <div class="content">
+      <p>Χειριστής</p>
+      <p>του {{ school_name }}</p>
+      <div class="square-container">
+         <li><a href="pendingborrows.html">Δανεισμοί που εκκρεμούν </a></li>
+         <li><a href="managerborrows.html">Κατάσταση Δανεισμών </a></li>
+         <li><a href="managerappruser.html">Αιτήσεις Χρηστών</a></li>
+         <li><a href="allacceptedsts.html">Όλοι οι μαθητές και καθηγητές</a></li>
+         <li><a href="addbooks.html"> Προσθήκη νέου βιβλίου</a></li>
+         <li><a href="reservequeues.html">Ουρά κρατήσεων σχολείου</a></li>
+      </div>
+      <div class="bullet-list">
+         <li><a href="query21.html">Παρουσίαση όλων των βιβλίων κατά Τίτλο, Συγγραφέα</a></li>
+         <li><a href="query22.html">Δανειζόμενοι που έχουν τουλάχιστον 1 βιβλίο που δεν έχουν επιστρέψει</a></li>
+         <li><a href="query23.html">Μέσος Όρος αξιολογήσεων ανά δανειζόμενο και κατηγορία</a></li>
+      </div>
+   </div>  
+</body>
+</html>

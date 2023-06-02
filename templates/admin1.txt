@@ -1,0 +1,55 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+   <h1> Asmin</h1>
+<!-- Query 3.1.1 -->
+<h2>Query 3.1.1</h2>
+<form id="queryForm1">
+  <label for="year">Enter year:</label>
+  <input type="number" id="year" required>
+  <label for="month">Enter month:</label>
+  <input type="text" id="month" required>
+  <button type="button" onclick="executeQuery1()">Execute Query 3.1.1</button>
+</form>
+<div id="queryResult1"></div>
+
+<!-- Query 3.1.2 -->
+<h2>Query 3.1.2</h2>
+<form id="queryForm2">
+  <label for="category">Enter book category:</label>
+  <input type="text" id="category" required>
+  <label for="year">Enter year:</label>
+  <input type="number" id="year" required>
+  <button type="button" onclick="executeQuery2()">Execute Query 3.1.2</button>
+</form>
+<div id="queryResult2"></div>
+
+<script>
+  function executeQuery1() {
+    // Get the input values
+    var year = document.getElementById('year').value;
+    var month = document.getElementById('month').value;
+
+    // Perform the query using the input values
+    // ...
+    // Display the query result in the corresponding div
+    // ...
+  }
+
+  function executeQuery2() {
+    // Get the input values
+    var category = document.getElementById('category').value;
+    var year = document.getElementById('year').value;
+
+    // Perform the query using the input values
+    // ...
+    // Display the query result in the corresponding div
+    // ...
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Δίκτυο Σχολικών Βιβλιοθηκών </title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+      }
+      .logout-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .content {
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+	   }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      h2 {
+         margin-bottom: 10px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+   </style>
+</head>
+<body>
+   <header>
+      <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+      <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+   </header>
+   <div class="content">
+      <h2> Στοιχεία για νέους εκπαιδευτικούς</h2>
+   </div>
+<div id="result">
+      {% if GetYoungTeachers %}
+         <h3>Νέοι εκπαιδευτικοί με ηλικία κάτω των 40 ετών που έχουν δανειστεί</h3>
+         <ul class="result-list">
+            {% for teacher in GetYoungTeachers %}
+            <li>{{ teacher['Teacher First Name'] }} {{ teacher['Teacher Last Name'] }}</li>
+            {% endfor %}
+         </ul>
+      {% else %}
+         <p>Δεν βρέθηκαν εκπαιδευτικοί με ηλικία κάτω των 40 ετών που έχουν δανειστεί βιβλία.</p>
+      {% endif %}
+   </div>
+</body>
+</html>

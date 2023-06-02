@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Επεξεργασία Βιβλίου</title>
+  <style> 
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+	header {
+	  background-color: #69169B;
+            color: #fff;
+            padding: 10px;
+	  text-align: center;
+          display: flex;
+          align-items:center;
+          justify-content: space-between;
+          padding-left: 200px;
+	}
+	h1 {
+	   margin: 0;
+	   font-size: 24px;
+           color: #E9E8EC;
+           flex: 1;
+           text-align: center;
+           margin-right:50px;
+	}
+    .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+	h2 {
+		margin: 0;
+	   font-size: 20px;
+           color: black;
+           flex: 1;
+           text-align: center;
+	}
+      .logout-button {
+        background-color: #14D0B2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+    button[type="submit"] {
+      background-color: #14D0B2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+      text-align:right;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+    <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+  </header>
+	<body>
+      <h2> Επεξεργασία Βιβλίου </h2>
+  <form action="/EditBook" method="POST">
+    <label for="title">ISBN:</label>
+    <input type="text" name="ISBN" value="{{ book.ISBN }}" required>
+    
+    <label for="title">Τίτλος:</label>
+    <input type="text" id="title" name="title" value="{{ book.title }}" required>
+    
+    <label for="image">Εικόνα:</label>
+    <input type="text" id="image" name="image" value="{{ book.image }}" required>
+
+    <label for="languages">Γλώσσες:</label>
+    <input type="text" id="languages" name="languages" value="{{ book.languages }}" required><br>
+
+    <label for="keywords">Λέξεις-κλειδιά:</label>
+    <input type="text" id="keywords" name="keywords" value="{{ book.keywords }}" required><br>
+
+    <label for="publisher">Εκδότης:</label>
+    <input type="text" id="publisher" name="publisher" value="{{ book.publisher }}" required><br>
+
+    <label for="page_num">Σελίδες:</label>
+    <input type="number" id="page_num" name="page_num" value="{{ book.page_num }}" required><br>
+
+    <label for="summary">Περίληψη:</label>
+    <textarea id="summary" name="summary" required>{{ book.summary }} </textarea><br>
+
+    <label for="authors">Συγγραφείς:</label>
+    <input type="text" id="authors" name="authors" value="{{ book.authors }}" required><br>
+
+    <label for="categories">Κατηγορίες:</label>
+    <input type="text" id="categories" name="categories" value="{{ book.categories }}" required><br>
+
+    <label for="categories">Αντίτυπα:</label>
+    <input type="number" id="categories" name="categories" value="{{ book.categories }}" required><br>
+
+    <label for="school_name">Όνομα Σχολείου:</label>
+    <input type="text" id="school_name" name="school_name" value="{{ book.school_name }}" required><br>
+    
+    <button type="submit">Αποθήκευση</button>
+  </form>
+</body>
+</html>

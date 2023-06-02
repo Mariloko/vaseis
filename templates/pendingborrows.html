@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+         background-color: #69169B;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding-left: 200px;
+      }
+      h1 {
+         margin: 0;
+         font-size: 24px;
+         color: #E9E8EC;
+         flex: 1;
+         text-align: center;
+         margin-right:10px;
+      }
+      .logout-button {
+         background-color: #14D0B2;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         cursor: pointer;
+         font-size: 16px;
+         border-radius: 4px;
+         text-decoration: none;
+      }
+      .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+      .container2 {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 0px;
+         margin-left: 100px;
+      }
+      h2 {
+         margin-top:0px;
+         margin-bottom: 10px;
+         text-align:center;
+         font-size: 22px;
+         margin-left: 60px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label,
+      form select {
+         margin-bottom: 10px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      .result-list {
+         list-style-type: none;
+         padding: 0;
+      }
+      .result-list li {
+         font-size: 18px;
+         margin-bottom: 10px;
+      }
+   </style>
+</head>
+<body>
+      <header>
+        <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+        <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+      </header>
+      <h2>Δανεισμοί που εκκρεμούν</h2>
+      <table>
+        <thead>
+           <tr>
+              <th>Αναγνωριστικό Δανεισμού</th>
+              <th>Όνομα χρήστη</th>
+              <th>Ημερομηνία</th>
+              <th>ISBN</th>
+              <th>Κατάσταση</th>
+              <th>Ρόλος</th>
+              <th>Όνομα Σχολείου</th>
+              <th>Αριθμός Δανεισμών</th>
+              <th>Due Return Κατάσταση</th>
+           </tr>
+        </thead>
+        <tbody>
+           {% for borrow in ShowPendingBorrows %}
+           <tr>
+              <td>{{ borrow.borrow_id }}</td>
+              <td>{{ borrow.username }}</td>
+              <td>{{ borrow.date }}</td>
+              <td>{{ borrow.ISBN }}</td>
+              <td>{{ borrow.status }}</td>
+              <td>{{ borrow.role }}</td>
+              <td>{{ borrow.school_name }}</td>
+              <td>{{ borrow['Borrow Count'] }}</td>
+              <td>{{ borrow['Due Return Status'] }}</td>
+              <td>
+                <form action="/approveborrowrequest/{{ borrow.borrow_id }}" method="POST" style="display: inline-block;">
+                    <button type="submit">Αποδοχή</button>
+                 </form>
+                 <form action="/denyborrowrequest/{{ borrow.borrow_id }}" method="POST" style="display: inline-block;">
+                    <button type="submit">Απόρριψη</button>
+                 </form>
+              </td>
+           </tr>
+           {% endfor %}
+        </tbody>
+     </table>
+  </body>
+  </html>

@@ -1,0 +1,23 @@
+the flask:
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Define your route for the page
+@app.route('/teachers')
+def search_teachers_below_age():
+    # Retrieve data from the database or any other source
+    teachers = [
+        {'name': 'John Doe', 'age': 35},
+        {'name': 'Jane Smith', 'age': 42},
+        {'name': 'Michael Johnson', 'age': 38}
+    ]
+
+    # Filter the teachers based on the age condition
+    teachers_below_age = [teacher for teacher in teachers if teacher['age'] < 40]
+
+    # Render the HTML template and pass the data to it
+    return render_template('teachers.html', teachersBelowAge=teachers_below_age)
+
+if __name__ == '__main__':
+    app.run()

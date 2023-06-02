@@ -1,0 +1,62 @@
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+  <style> 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #69169B;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 200px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #E9E8EC;
+      flex: 1;
+      text-align: center;
+      margin-right: 40px;
+    }
+    h2 {
+        text-align:center;
+        color: black;
+        font-size:20px;
+    }
+    .logout-button {
+      background-color: #14D0B2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+      <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+      <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+    </header>
+  <h2>Κριτικές βιβλίου</h1>
+  <ul>
+    {% for review in UserGetBookReviews %}
+    <li style="list-style-type: none;">
+      <p><strong>Όνομα χρήστη: </strong> {{ review.username }}</p>
+      <p>Βαθμολογία : {{ review.rating }}<p>
+      <p>Σχόλιο: {{ review.comment }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

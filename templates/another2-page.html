@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Δίκτυο Σχολικών Βιβλιοθηκών</title>
+   <style> 
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+      header {
+	  background-color: #69169B;
+            color: #fff;
+            padding: 10px;
+	  text-align: center;
+          display: flex;
+          align-items:center;
+          justify-content: space-between;
+	}
+      .container {
+         max-width: 400px;
+         margin: 50px auto;
+         padding: 20px;
+         background-color: #f0f0f0;
+         border-radius: 4px;
+      }
+      h1 {
+         margin: 0;
+	   font-size: 24px;
+           color: #E9E8EC;
+           flex: 1;
+           text-align: center;
+      }
+      h2 {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+      .form-group {
+         margin-bottom: 15px;
+      }
+      .form-group label {
+         display: block;
+         margin-bottom: 5px;
+         font-weight: bold;
+      }
+      .form-group input {
+         width: 100%;
+         padding: 5px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+      }
+   </style>
+</head>
+<body>
+   <header>
+     <h1 style="margin: 0 auto;">Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+   </header>
+   <div class="container">
+      <h2>Αίτηση χειριστή</h2>
+      <form action="/ManagerRegister" method="POST">
+         <div class="form-group">
+            <label for="name">Όνομα Χρήστη:</label>
+            <input type="text" id="name" name="name" required>
+         </div>
+         <div class="form-group">
+            <label for="password">Κωδικός:</label>
+            <input type="password" id="email" name="email" required>
+         </div>
+         <div class="form-group">
+            <label for="text">Όνομα:</label>
+            <input type="text" id="password" name="password" required>
+         </div>
+         <div class="form-group">
+            <label for="text">Επώνυμο:</label>
+            <input type="text" id="confirm_password" name="confirm_password" required>
+         </div>
+         <div class="form-group">
+            <label for="date">Ημερομηνία Γέννησης:</label>
+            <input type="date" id="address" name="address">
+         </div>
+         <div class="form-group">
+            <label for="text">Σχολείο Προτίμησης:</label>
+            <input type="text" id="address" name="address">
+         </div>
+         <div class="form-group">
+            <label for="text">Κλειδί χειριστή:</label>
+            <input type="text" id="address" name="address">
+         </div>
+         <button class="submit-button" type="submit">Υποβολή</button>
+      </form>
+      <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
+         <p>Η αίτησή σας υποβλήθηκε με επιτυχία!</p>
+      </div>
+   </div>
+</body>
+</html>
+
+

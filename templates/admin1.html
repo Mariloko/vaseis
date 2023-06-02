@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Δίκτυο Σχολικών Βιβλιοθηκών </title>
+   <style> 
+        
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+	header {
+	  background-color: #69169B;
+      color: #fff;
+      padding: 10px;
+	  text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 200px;
+	}
+	h1 {
+	  margin: 0;
+	  font-size: 24px;
+      color: #E9E8EC;
+      flex: 1;
+      text-align: center;
+      margin-right: 20px;
+	}
+	.logout-button {
+	  background-color: #14D0B2;
+	  color: white;
+	  padding: 10px 20px;
+	  border: none;
+	  cursor: pointer;
+	  font-size: 16px;
+	  border-radius: 4px;
+	  text-decoration: none;
+	}
+	.content {
+      text-align: center;
+      padding: 20px;
+      font-size: 25px;
+      font-family: Arial, sans-serif;
+	}
+      .content2 {
+	text-align:left;
+	padding: 20px;
+	font-size:20px;
+	font-family: sans-serif;
+	}
+	.square-container {
+	  position: absolute;
+      top: 180px;
+	  left: 0;
+	  border: 1px solid #000;
+	  padding: 8px;
+	  border-radius: 4px;
+	  text-align: left;
+	}
+	.bullet-list {
+      list-style-type: disc;
+      text-align: center;
+	  text-decoration: none;
+	}
+	.bullet-list li {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: black;
+  vertical-align: top; /* Add this line */
+}
+
+.bullet-list li a {
+  color: #6C2424;
+  text-decoration: none;
+}
+	.hidden {
+      display: none;
+    }
+    .arrow {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid black;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      transition: transform 0.3s ease;
+    }
+    .arrow.down {
+      transform: rotate(180deg);
+    }
+   </style>
+</head>
+<body>
+   <header>
+      <h1>Δίκτυο Σχολικών Βιβλιοθηκών</h1>
+      <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+   </header>
+   <div class="content">
+      <p>Διαχειριστής</p>
+   </div>
+   <div class="content2">
+      <div class="square-container">
+
+   <li>
+      <a href="adminapproves.html" style="text-decoration: none;">
+         Αιτήσεις χειριστών που εκκρεμούν
+      </a>
+   </li>
+   <li>
+      <a href="adminallusers.html" style="text-decoration: none;">
+         Όλοι οι χρήστες
+      </a>
+   </li>
+   <li>
+      <a href="admingetsallschools.html" style="text-decoration:none;">
+      Όλα τα σχολεία
+      </a>
+   </li>
+    <li >
+         <a href="#" onclick="makeBackup()" style="text-decoration: none;">
+            Δημιουργία αντιγράφου ασφαλείας
+         </a>
+      </li>
+      <li>
+         <a href="#" onclick="restoreBackup()" style="text-decoration: none;">
+            Επαναφορά αντιγράφου ασφαλείας
+         </a>
+      </li> 
+</div>
+   </div>
+   <div class="bullet-list">
+      <li><a href="query1b.html">Συνολικός αριθμός δανεισμών ανά σχολείο</a></li>
+      <li><a href="query2b.html">Συγγραφείς, δανεισμοί εκπαιδευτικών για μια κατηγορία</a></li>
+      <li><a href="query3b.html">Στοιχεία για νέους εκπαιδευτικούς</a></li>
+      <li><a href="query4.html">Συγγραφείς χωρίς δανεισμό</a></li>
+      <li><a href="query5.html">Χειριστές που έχουν >20 δανεισμούς</a></li>
+      <li><a href="query6.html">Τοπ 3 ζεύγη</a></li>
+      <li><a href="query7.html">Ποιοι έχουν γράψει 5 βιβλία λιγότερα</a></li>
+   </div>
+   <script>
+   function toggleDetails(event) {
+    event.preventDefault();
+    var target = event.target;
+    var details = target.nextElementSibling;
+    var arrow = target.querySelector(".arrow");
+    details.classList.toggle("hidden");
+    arrow.classList.toggle("down");
+  }
+   function makeBackup() {
+      fetch('/backup', {
+         method: 'POST',
+         // Include any necessary headers or data
+      })
+      .then(response => {
+         if (response.ok) {
+            // Backup successful
+            alert('Backup created successfully.');
+         } else {
+            // Backup failed
+            alert('Failed to create backup.');
+         }
+      })
+      .catch(error => {
+         console.error('Error creating backup:', error);
+         alert('An error occurred while creating the backup.');
+      });
+   }
+
+    function makeBackup() {
+      // Simulate backup operation
+      alert('Backup created successfully.');
+   }
+
+   function restoreBackup() {
+      // Simulate restore operation
+      alert('Backup restored successfully.');
+   }
+</script>
+</body>
+</html>
+

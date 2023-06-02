@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Δίκτυο Σχολικών Βιβλιοθηκών </title>
+   <style> 
+        
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+	header {
+	  background-color: #69169B;
+            color: #fff;
+            padding: 10px;
+	  text-align: center;
+          display: flex;
+          align-items:center;
+          justify-content: space-between;
+          padding-left: 200px;
+	}
+	h1 {
+	   margin: 0;
+	   font-size: 24px;
+           color: #E9E8EC;
+           flex: 1;
+           text-align: center;
+	}
+	 .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 50px;
+      }
+	h2 {
+		margin: 0;
+	   font-size: 24px;
+           color: black;
+           flex: 1;
+           text-align: center;
+	}
+      .logout-button {
+        background-color: #14D0B2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+      }
+      form label, form input {
+         margin-bottom: 5px;
+      }
+      #result {
+         text-align: center;
+         margin-top: 20px;
+      }
+      table {
+      margin: 0 auto;
+   }
+    </style>
+   </head>
+   <body>
+     <header>
+       <h1>Δικτυο Σχολικών Βιβλιοθηκών</h1>
+       <button class="logout-button" onclick="window.location.href='istooooo.html'">Αποσύνδεση</button>
+      </header>
+	<body>
+      <h2> Δανειζόμενοι που έχουν τουλάχιστον 1 βιβλίο που δεν έχουν επιστρέψει </h2>
+      <div class="container">
+        <form action="/GetUsersWithUnreturnedBooks" method="GET">
+           <label for="first_name">Όνομα:</label>
+           <input type="text" id="first_name" name="first_name">
+  
+           <label for="last_name">Επώνυμο:</label>
+           <input type="text" id="last_name" name="last_name">
+  
+           <label for="overdue_days">Ημέρες καθυστέρησης:</label>
+           <input type="number" id="overdue_days" name="overdue_days">
+  
+           <button type="submit">Search</button>
+        </form>
+  
+        <table>
+           <tr>
+              <th>Όνομα χρήστη</th>
+              <th>Τίτλος</th>
+              <th>Ημερομηνία δανεισμού</th>
+              <th>Ημερομηνία επιστροφής</th>
+              <th>Όνομα δανεισμού</th>
+              <th>Ημέρες καθυστέρησης</th>
+           </tr>
+           {% for user in GetUsersWithUnreturnedBooks %}
+           <tr>
+            <td>{{ user.User }}</td>
+            <td>{{ user['Book Title'] }}</td>
+            <td>{{ user['Borrow Date'] }}</td>
+            <td>{{ user['Return Date'] }}</td>
+            <td>{{ user['Borrow ID'] }}</td>
+            <td>{{ user['Overdue Days'] }}</td>
+          </tr>
+           {% endfor %}
+        </table>
+     </div>
+  </body>
+  </html>
